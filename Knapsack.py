@@ -63,7 +63,7 @@ def optimize(players, budget):
                             currentLineup.append(k.name)
                             amount = amount - k.cost
                 
-                if p.cost <= x and (V[pos+1][x-p.cost] + p.value >= V[pos][x]) and (p.name not in currentLineup):
+                if p.cost <= x and (V[pos+1][x-p.cost] + p.value >= V[pos][x]) and (p.name not in currentLineup):  # and currentTeams[p.team] < 4
                     if pos != 0:
                         if x - p.cost < 10:
                             continue
@@ -158,6 +158,7 @@ def optimizeMultiple(players,budget,entries):
                         
         names = set()
         fnames=set()
+        print('-----------')
         newLineup = getLineup(Who,[],output=True)
         for p in range(4,len(newLineup)):
             names.add(newLineup[p].name)
